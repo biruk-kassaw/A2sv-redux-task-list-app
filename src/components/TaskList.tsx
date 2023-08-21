@@ -36,7 +36,7 @@ const TaskList: React.FC = () => {
   return (
     <div>
       <div className="mb-2">
-        <button className="text-green-600 mr-2" onClick={() => setShowCompleted(!showCompleted)}>
+        <button className="bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600 mr-2" onClick={() => setShowCompleted(!showCompleted)}>
           {showCompleted ? 'Show All Tasks' : 'Show Completed Tasks'}
         </button>
       </div>
@@ -48,7 +48,7 @@ const TaskList: React.FC = () => {
             task.completed ? 'bg-gray-200' : ''
           }`}
         >
-        <div className="flex items-center">
+        <div data-cy="complete-button" className="flex items-center">
           <input
             type="checkbox"
             checked={task.completed}
@@ -65,6 +65,7 @@ const TaskList: React.FC = () => {
             <div
               className={`ml-2 cursor-pointer ${task.completed ? 'line-through' : ''}`}
               onClick={() => toggleTaskStatus(task)}
+              data-cy="complete-button"
             >
               {task.title}
             </div>
@@ -86,7 +87,7 @@ const TaskList: React.FC = () => {
               Edit
             </button>
           )}
-          <button className="text-red-600" onClick={() => deleteTask(task.id)}>
+          <button data-cy="delete-button" className="text-red-600" onClick={() => deleteTask(task.id)}>
             Delete
           </button>
         </div>

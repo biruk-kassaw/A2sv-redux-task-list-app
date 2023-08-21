@@ -19,13 +19,14 @@ const AddTask: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="mt-4 mb-10 text-center">
       <input
+        data-cy="task-input"
         type="text"
         value={title}
         onChange={e => setTitle(e.target.value)}
         placeholder="Enter a task..."
         className="lg:w-96 md:w-96 sm:64 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500 mb-4"
       />
-      <button type="submit" className="ml-2 bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600">Add Task</button>
+      <button data-cy="add-button" type="submit" className="ml-2 bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600">Add Task</button>
     </form>
   );
 };
